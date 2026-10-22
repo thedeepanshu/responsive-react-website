@@ -1,39 +1,20 @@
-import ImageOne from "../images/Slider/01.jpg";
-import ImageTwo from "../images/Slider/02.jpg";
-import ImageThree from "../images/Slider/03.jpg";
-import ImageFour from "../images/Slider/04.jpg";
+import { getProperty } from "./PropertyData";
+import { formatPrice, priceSuffix, statusLabel } from "../utils/format";
 
-export const SliderData = [
-  {
-    title: "Luxury Villa in Gurugram, India",
-    price: "$54,280",
-    path: "/homes",
-    label: "View Home",
-    image: ImageOne,
-    alt: "House",
-  },
-  {
-    title: "Luxury Villa in Banglore, India",
-    price: "$44,900",
-    path: "/homes",
-    label: "View Home",
-    image: ImageTwo,
-    alt: "House",
-  },
-  {
-    title: "Luxury Villa in Mumbai, India",
-    price: "$94,910",
-    path: "/homes",
-    label: "View Home",
-    image: ImageThree,
-    alt: "House",
-  },
-  {
-    title: "Luxury Villa in New delhi, India",
-    price: "$56,280",
-    path: "/homes",
-    label: "View Home",
-    image: ImageFour,
-    alt: "House",
-  },
+const slideIds = [
+  "palm-court-villa",
+  "onyx-house",
+  "evergreen-pavilion",
+  "azure-terrace-villa",
 ];
+
+export const SliderData = slideIds.map(getProperty).map((property) => ({
+  title: property.title,
+  location: `${property.locality}, ${property.city}`,
+  tag: statusLabel(property.status),
+  price: `${formatPrice(property)} ${priceSuffix(property)}`.trim(),
+  path: `/property/${property.id}`,
+  label: "View Property",
+  image: property.image,
+  alt: property.title,
+}));

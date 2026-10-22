@@ -5,39 +5,43 @@ import ImageFour from "../images/Clients/04.jpg";
 import ImageFive from "../images/Clients/05.jpg";
 import ImageSix from "../images/Clients/06.jpg";
 
-export const ClientOne = {
-  image: ImageOne,
-  para: "Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit",
-  alt: "women",
-  name: "Mona",
-};
-export const ClientTwo = {
-  image: ImageThree,
-  para: "Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit",
-  alt: "man",
-  name: "David",
-};
-export const ClientThree = {
-  image: ImageTwo,
-  para: "Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit",
-  alt: "women",
-  name: "Aruhi",
-};
-export const ClientFour = {
-  image: ImageFour,
-  para: "Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit",
-  alt: "man",
-  name: "Peter",
-};
-export const ClientFive = {
-  image: ImageSix,
-  para: "Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit",
-  alt: "women",
-  name: "Rihana",
-};
-export const ClientSix = {
-  image: ImageFive,
-  para: "Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit",
-  alt: "man",
-  name: "Rohan",
-};
+export const testimonials = [
+  {
+    image: ImageOne,
+    name: "Mona Sharma",
+    role: "Bought a villa in Goa",
+    para: "From the first call to the final paperwork, the LUXYVILLA team made buying our holiday home completely stress-free. They understood exactly what we were looking for.",
+  },
+  {
+    image: ImageThree,
+    name: "David Fernandes",
+    role: "Leased in Mumbai",
+    para: "I relocated for work and needed a furnished apartment fast. They shortlisted three perfect options in two days and handled the entire lease remotely.",
+  },
+  {
+    image: ImageTwo,
+    name: "Aarohi Mehta",
+    role: "Sold in Bengaluru",
+    para: "Their valuation was spot-on and the photography made our home look stunning. We received multiple offers within the first week of listing.",
+  },
+  {
+    image: ImageFour,
+    name: "Peter Dsouza",
+    role: "Bought in Gurugram",
+    para: "Professional, transparent and genuinely helpful. Our consultant negotiated a far better price than we expected and walked us through every step.",
+    top: true,
+  },
+  {
+    image: ImageSix,
+    name: "Rihana Khan",
+    role: "Rented in New Delhi",
+    para: "The attention to detail was incredible. Every home we viewed matched our brief, and the move-in process was smooth from start to finish.",
+  },
+  {
+    image: ImageFive,
+    name: "Rohan Verma",
+    role: "Investor, Pune",
+    para: "I've worked with LUXYVILLA on three investment properties now. Their market insight and after-sales support keep me coming back.",
+    top: true,
+  },
+];

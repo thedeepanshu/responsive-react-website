@@ -1,31 +1,27 @@
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa";
-
 export const FooterData = {
   title: {
     first: "Let's find",
-    second: "your Dream Home",
+    second: "your dream home",
   },
-  iconOne: FaFacebookF,
-  iconTwo: FaInstagram,
-  iconThree: FaLinkedinIn,
-  iconFour: FaYoutube,
   btnLabel: "View Homes",
-  path: "/homes",
-  policy: {
-    title: "Policy",
-    itemOne: "Help",
-    itemTwo: "Terms",
-    itemThree: "Agreement",
-  },
-  contact: {
-    title: "Contact Us",
-    itemOne: "Email",
-    itemTwo: "Call",
-    itemThree: "Reach",
-  },
+  path: "/buy",
+  columns: [
+    {
+      title: "Explore",
+      links: [
+        { label: "Buy a home", path: "/buy" },
+        { label: "Rent a home", path: "/rent" },
+        { label: "About us", path: "/about" },
+        { label: "Contact", path: "/contact" },
+      ],
+    },
+    {
+      title: "Support",
+      links: [
+        { label: "Help & FAQ", path: "/faq" },
+        { label: "Terms of service", path: "/terms" },
+        { label: "Privacy policy", path: "/privacy" },
+      ],
+    },
+  ],
 };

@@ -1,18 +1,22 @@
-import ImageOne from "../images/03.jpg";
-import ImageTwo from "../images/04.jpg";
+import { images } from "./images";
 
-export const CardDataOne = {
-  image: ImageOne,
-  alt: "house",
-  para: "Amet cupidatat aute sunt velit exercitation do magna quis nisi labore sint. Aliquip duis voluptate aliquip eu minim laborum non ullamco ut duis",
-  btnLabel: "View Rentals",
-  path: "/rentals",
-};
-
-export const CardDataTwo = {
-  image: ImageTwo,
-  alt: "house",
-  para: "Dolor est et do ex laboris adipisicing proident anim. Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit exercitation",
-  btnLabel: "View Rentals",
-  path: "/rentals",
-};
+export const CardData = [
+  {
+    image: images.azure,
+    alt: "Modern white villa with a pool",
+    eyebrow: "Rent",
+    title: "Rent a home you'll love",
+    para: "From furnished city apartments to seaside villas, discover long-term rentals that are ready to move into, with transparent terms and no surprises.",
+    btnLabel: "View Rentals",
+    path: "/rent",
+  },
+  {
+    image: images.mapleLane,
+    alt: "Brick family home with a garage",
+    eyebrow: "Sell",
+    title: "Sell with confidence",
+    para: "Get a free, no-obligation valuation from a local expert. Professional photography, targeted marketing and skilled negotiation come as standard.",
+    btnLabel: "Book a valuation",
+    path: "/contact",
+  },
+];

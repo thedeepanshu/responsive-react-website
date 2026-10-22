@@ -1,13 +1,14 @@
-import Image from "../images/04.jpg";
+import { images } from "./images";
 
 export const ContainerData = {
-  image: Image,
-  alt: "house-interior",
-  title: "Stunning Interior",
+  image: images.kitchen,
+  alt: "White kitchen with crystal pendant lights",
+  eyebrow: "Crafted interiors",
+  title: "Stunning interiors",
   paraOne:
-    "Dolor est et do ex laboris adipisicing proident anim. Qui nostrud eu in mollit. Ex mollit sit minim elit labore est ea voluptate ex nisi. Consequat sit exercitation amet eu.",
+    "Marble splashbacks, brushed-brass details and light that pours in from every angle. Our homes are chosen as much for how they feel inside as for how they look from the street.",
   paraTwo:
-    "Dolor est et do ex laboris adipisicing proident anim. Qui nostrud eu in mollit. Ex mollit sit minim ",
+    "Browse our collection to find interiors that are ready to live in from the day you arrive.",
   btnLabel: "View Homes",
-  path: "/homes",
+  path: "/buy",
 };

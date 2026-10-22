@@ -1,119 +1,105 @@
 import React from "react";
 import styled from "styled-components";
+import { FiArrowRight } from "react-icons/fi";
+import { responsive } from "../data/images";
+import { colors, media } from "../theme";
 import { Button } from "./Button";
-import Card from "./Card";
+import { Container, Eyebrow, Section } from "./Layout";
 
-export const Section = styled.section`
-  width: 100%;
-  height: 100%;
-  padding: 4rem 0rem 3rem;
-
-  @media screen and (max-width: 768px) {
-    padding: 2rem 0rem 0rem;
-  }
-`;
-
-const Container = styled.div`
-  padding: 3rem calc((100vw - 1300px) / 2);
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 700px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5rem;
 
-  @media screen and (max-width: 768px) {
+  ${media.laptop} {
+    gap: 3rem;
+  }
+
+  ${media.tablet} {
     grid-template-columns: 1fr;
-    grid-template-rows: 600px;
-    padding: 2rem calc((100vw - 1300px) / 2);
   }
 `;
 
-const ContainerLeft = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  line-height: 1.4;
-  padding: 1rem 2rem;
-  order: ${({ reverse }) => (reverse ? "2" : "1")};
+const Text = styled.div`
+  order: ${({ $reverse }) => ($reverse ? 2 : 1)};
 
-  h1 {
-    margin-bottom: 1rem;
-    font-size: clamp(1rem, 8vw, 2rem);
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 1.5rem;
   }
 
   p {
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    color: ${colors.muted};
   }
 
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+  a {
+    margin-top: 1rem;
+  }
+
+  ${media.tablet} {
+    order: 2;
   }
 `;
 
-const ContainerRight = styled.div`
-  padding: 1rem 2rem;
-  order: ${({ reverse }) => (reverse ? "1" : "2")};
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const ImageWrap = styled.div`
+  position: relative;
+  z-index: 0;
+  order: ${({ $reverse }) => ($reverse ? 1 : 2)};
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid ${colors.accent};
+    transform: ${({ $reverse }) =>
+      $reverse ? "translate(-24px, 24px)" : "translate(24px, 24px)"};
+    z-index: -1;
+  }
 
   img {
     width: 100%;
-    height: 100%;
+    height: 560px;
     object-fit: cover;
     object-position: center;
-    @media screen and (max-width: 768px) {
-      width: 100%%;
-      height: 100%;
-    }
   }
 
-  @media screen and (max-width: 768px) {
-    order: ${({ reverse }) => (reverse ? "2" : "1")};
-    .unique {
-      height: 90%;
+  ${media.tablet} {
+    order: 1;
+    margin-right: 24px;
+
+    img {
+      height: 380px;
     }
   }
 `;
 
-const InfoSection = ({ infoDataOne, infoDataTwo }) => {
-  return (
-    <>
-      <Section>
-        <Container>
-          <ContainerLeft>
-            <h1>{infoDataOne.heading}</h1>
-            <p>{infoDataOne.paraOne}</p>
-            <p>{infoDataOne.paraOne}</p>
-            <Button primary="true" to="/homes">
-              {infoDataOne.btnLabel}
-            </Button>
-          </ContainerLeft>
-          <ContainerRight reverse={infoDataOne.reverse}>
-            <img className="unique" src={infoDataOne.image} alt="home" />
-          </ContainerRight>
-        </Container>
-      </Section>
-      <Card />
-      <Section>
-        <Container>
-          <ContainerRight reverse={infoDataTwo.reverse}>
-            <img src={infoDataTwo.image} alt="home" />
-          </ContainerRight>
-          <ContainerLeft>
-            <h1>{infoDataTwo.heading}</h1>
-            <p>{infoDataTwo.paraOne}</p>
-            <p>{infoDataTwo.paraOne}</p>
-            <Button primary="true" to="/homes">
-              {infoDataTwo.btnLabel}
-            </Button>
-          </ContainerLeft>
-        </Container>
-      </Section>
-    </>
-  );
-};
+const InfoSection = ({ data, background }) => (
+  <Section $bg={background}>
+    <Container>
+      <Grid>
+        <Text $reverse={data.reverse}>
+          {data.eyebrow && <Eyebrow>{data.eyebrow}</Eyebrow>}
+          <h2>{data.heading}</h2>
+          {data.paragraphs.map((para) => (
+            <p key={para.slice(0, 24)}>{para}</p>
+          ))}
+          <Button $variant="primary" to={data.path}>
+            {data.btnLabel} <FiArrowRight />
+          </Button>
+        </Text>
+        <ImageWrap $reverse={data.reverse}>
+          <img
+            {...responsive(data.image, "(max-width: 768px) 100vw, 600px")}
+            alt={data.alt}
+            loading="lazy"
+            decoding="async"
+          />
+        </ImageWrap>
+      </Grid>
+    </Container>
+  </Section>
+);
 
 export default InfoSection;
